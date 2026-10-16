@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Registration</title>
+</head>
+<body>
+
+<h2>Course Registration Form</h2>
+
+<form onsubmit="return validate()">
+
+    Name:
+    <input type="text" id="name" placeholder="Enter name"
+           required pattern="[A-Za-z ]+">
+    <br><br>
+
+    Email:
+    <input type="email" id="email" placeholder="Enter email"
+           required>
+    <br><br>
+
+    Mobile:
+    <input type="tel" id="mobile" placeholder="Enter mobile number"
+           required pattern="[0-9]{10}">
+    <br><br>
+
+    Password:
+    <input type="password" id="pass" placeholder="Enter password"
+           required minlength="6">
+    <br><br>
+
+    Course:
+    <select id="course" required>
+        <option value="">Select Course</option>
+        <option value="C">C Programming</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Register">
+
+</form>
+
+<p id="msg"></p>
+
+<script>
+function validate() {
+    let mobile = document.getElementById("mobile").value;
+    let pass = document.getElementById("pass").value;
+
+    if (mobile.length != 10) {
+        document.getElementById("msg").innerHTML =
+            "Enter valid mobile number";
+        return false;
+    }
+
+    if (pass.length < 6) {
+        document.getElementById("msg").innerHTML =
+            "Password must contain 6 characters";
+        return false;
+    }
+
+    document.getElementById("msg").innerHTML =
+        "Registration Successful!";
+    return false;
+}
+</script>
+
+</body>
+</html>
